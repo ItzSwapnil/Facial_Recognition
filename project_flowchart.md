@@ -146,13 +146,13 @@ graph TB
     
     CLEANUP --> STOP([🛑 System Stop])
     
-    %% Styling
-    classDef entryPoint fill:#e1f5fe
-    classDef processing fill:#f3e5f5
-    classDef detection fill:#e8f5e8
-    classDef recognition fill:#fff3e0
-    classDef alert fill:#ffebee
-    classDef storage fill:#f1f8e9
+    %% Styling - Dark Mode Friendly
+    classDef entryPoint fill:#1a237e,stroke:#3f51b5,stroke-width:2px,color:#ffffff
+    classDef processing fill:#4a148c,stroke:#7b1fa2,stroke-width:2px,color:#ffffff
+    classDef detection fill:#1b5e20,stroke:#4caf50,stroke-width:2px,color:#ffffff
+    classDef recognition fill:#e65100,stroke:#ff9800,stroke-width:2px,color:#ffffff
+    classDef alert fill:#b71c1c,stroke:#f44336,stroke-width:2px,color:#ffffff
+    classDef storage fill:#33691e,stroke:#8bc34a,stroke-width:2px,color:#ffffff
     
     class START,ENTRY,MAIN,LAUNCHER,CLI entryPoint
     class COMP_INIT,PREPROCESS,RESIZE,COLOR_CONVERT processing
@@ -245,13 +245,13 @@ graph LR
     E --> X
     F --> Y
     
-    %% Styling
-    classDef entry fill:#e3f2fd
-    classDef core fill:#f3e5f5
-    classDef ai fill:#e8f5e8
-    classDef data fill:#fff8e1
-    classDef input fill:#fce4ec
-    classDef output fill:#e0f2f1
+    %% Styling - Dark Mode Friendly
+    classDef entry fill:#1a237e,stroke:#3f51b5,stroke-width:2px,color:#ffffff
+    classDef core fill:#4a148c,stroke:#7b1fa2,stroke-width:2px,color:#ffffff
+    classDef ai fill:#1b5e20,stroke:#4caf50,stroke-width:2px,color:#ffffff
+    classDef data fill:#e65100,stroke:#ff9800,stroke-width:2px,color:#ffffff
+    classDef input fill:#b71c1c,stroke:#f44336,stroke-width:2px,color:#ffffff
+    classDef output fill:#33691e,stroke:#8bc34a,stroke-width:2px,color:#ffffff
     
     class A,B,C entry
     class D,E,F,G core
