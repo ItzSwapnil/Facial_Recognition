@@ -1,0 +1,91 @@
+2025-07-03 15:32:22,078 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 15:32:22,083 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 15:32:22,163 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 15:32:22,165 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 15:33:41,304 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 15:33:41,308 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 15:34:04,476 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 15:34:04,479 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 15:34:25,053 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 15:34:25,057 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 15:34:26,696 - FaceRecognitionSystem - ERROR - Failed to initialize face system: Only one live display may be active at once
+2025-07-03 15:34:54,555 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 15:34:54,557 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 15:35:01,854 - FaceRecognitionSystem - INFO - Successfully initialized ultra-modern face recognition system
+2025-07-03 15:37:10,395 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 15:37:10,397 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 15:37:19,116 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 15:37:19,118 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 15:37:27,932 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 15:37:27,933 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 15:37:29,351 - FaceRecognitionSystem - ERROR - Failed to initialize face system: Only one live display may be active at once
+2025-07-03 15:37:37,872 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 15:37:37,874 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 15:37:45,074 - FaceRecognitionSystem - INFO - Successfully initialized ultra-modern face recognition system
+2025-07-03 15:37:54,004 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 15:37:54,008 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 15:37:54,061 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 15:37:54,063 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 15:58:49,106 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 15:58:49,109 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 15:58:49,169 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 15:58:49,172 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 15:59:19,995 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 15:59:19,998 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 15:59:58,194 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 15:59:58,196 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 16:00:05,294 - FaceRecognitionSystem - INFO - Successfully initialized ultra-modern face recognition system
+2025-07-03 16:00:05,298 - FaceRecognitionSystem - ERROR - Face recognition error: 'UltraModernFaceRecognition' object has no attribute 'main'
+2025-07-03 16:00:28,036 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 16:00:28,040 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 16:00:35,681 - FaceRecognitionSystem - INFO - Successfully initialized ultra-modern face recognition system
+2025-07-03 16:00:35,684 - FaceRecognitionSystem - ERROR - Face recognition error: 'UltraModernFaceRecognition' object has no attribute 'main'
+2025-07-03 16:01:03,454 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 16:01:03,457 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 16:01:30,465 - FaceRecognitionSystem - INFO - Successfully initialized ultra-modern face recognition system
+2025-07-03 16:02:31,325 - FaceRecognitionSystem - ERROR - Face recognition error: 'UltraModernFaceRecognition' object has no attribute 'main'
+2025-07-03 16:11:13,799 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 16:11:13,801 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 16:16:26,136 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 16:16:26,138 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 16:16:59,287 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 16:16:59,288 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 16:17:13,317 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 16:17:13,320 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 16:17:19,739 - FaceRecognitionSystem - INFO - Successfully initialized ultra-modern face recognition system
+2025-07-03 16:17:19,741 - FaceRecognitionSystem - ERROR - Face recognition error: 'UltraModernFaceRecognition' object has no attribute 'main'
+2025-07-03 16:17:44,090 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 16:17:44,092 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 16:17:49,605 - FaceRecognitionSystem - INFO - Successfully initialized ultra-modern face recognition system
+2025-07-03 16:18:05,590 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 16:18:05,591 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 16:18:16,647 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 16:18:16,650 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 16:18:18,051 - FaceRecognitionSystem - ERROR - Failed to initialize face system: Only one live display may be active at once
+2025-07-03 16:18:46,183 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 16:18:46,184 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 16:20:31,689 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 16:20:31,692 - FaceRecognitionSystem - INFO - Initialized Ultra-Modern Face Recognition System v2.0.0
+2025-07-03 16:20:37,087 - FaceRecognitionSystem - INFO - Successfully initialized ultra-modern face recognition system
+2025-07-03 16:20:37,089 - FaceRecognitionSystem - ERROR - Face recognition error: 'UltraModernFaceRecognition' object has no attribute 'main'
+2025-07-03 16:23:59,751 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 16:23:59,754 - FaceRecognitionSystem - INFO - Initialized Professional Face Recognition System v2.0.0
+2025-07-03 16:24:24,197 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 16:24:24,199 - FaceRecognitionSystem - INFO - Initialized Professional Face Recognition System v2.0.0
+2025-07-03 16:24:30,536 - FaceRecognitionSystem - INFO - Successfully initialized ultra-modern face recognition system
+2025-07-03 16:25:29,606 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 16:25:29,607 - FaceRecognitionSystem - INFO - Initialized Professional Face Recognition System v2.0.0
+2025-07-03 16:26:01,091 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 16:26:01,094 - FaceRecognitionSystem - INFO - Initialized Professional Face Recognition System v2.0.0
+2025-07-03 16:26:18,390 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 16:26:18,392 - FaceRecognitionSystem - INFO - Initialized Professional Face Recognition System v2.0.0
+2025-07-03 16:27:08,214 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 16:27:08,218 - FaceRecognitionSystem - INFO - Initialized Professional Face Recognition System v2.0.0
+2025-07-03 16:28:14,531 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 16:28:14,532 - FaceRecognitionSystem - INFO - Initialized Professional Face Recognition System v2.0.0
+2025-07-03 16:28:20,041 - FaceRecognitionSystem - INFO - Successfully initialized ultra-modern face recognition system
+2025-07-03 16:29:47,540 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 16:29:47,541 - FaceRecognitionSystem - INFO - Initialized Professional Face Recognition System v2.0.0
+2025-07-03 16:30:54,207 - FaceRecognitionSystem - INFO - Logging initialized with level: INFO
+2025-07-03 16:30:54,209 - FaceRecognitionSystem - INFO - Initialized Professional Face Recognition System v2.0.0
+2025-07-03 16:31:17,532 - FaceRecognitionSystem - INFO - Successfully initialized ultra-modern face recognition system

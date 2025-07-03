@@ -1,0 +1,96 @@
+2025-07-03 15:30:57,905 - face_recognition_system.advanced_face_detector - INFO - Initializing advanced face detection models...
+2025-07-03 15:30:57,906 - face_recognition_system.advanced_face_detector - INFO - Downloading YOLO face detection model...
+2025-07-03 15:31:03,266 - face_recognition_system.advanced_face_detector - INFO - YOLO model initialized successfully
+2025-07-03 15:31:03,266 - face_recognition_system.advanced_face_detector - INFO - ONNX runtime initialized with providers: ['CPUExecutionProvider']
+2025-07-03 15:31:03,266 - face_recognition_system.enhanced_main_system - INFO - Advanced face detector initialized
+2025-07-03 15:31:03,267 - face_recognition_system.advanced_face_recognizer - INFO - Using device: cpu
+2025-07-03 15:31:03,267 - face_recognition_system.advanced_face_recognizer - INFO - Initializing advanced face recognition models...
+2025-07-03 15:31:03,267 - face_recognition_system.advanced_face_recognizer - INFO - ONNX runtime configured with providers: ['CPUExecutionProvider']
+2025-07-03 15:31:03,268 - face_recognition_system.enhanced_main_system - INFO - Advanced face recognizer initialized
+2025-07-03 15:31:03,779 - face_recognition_system.alert_system - INFO - Sound system initialized successfully
+2025-07-03 15:31:03,781 - face_recognition_system.enhanced_main_system - INFO - Basic alert system initialized
+2025-07-03 15:31:03,781 - face_recognition_system.enhanced_main_system - INFO - Enhanced Facial Recognition System initialized
+2025-07-03 15:31:03,782 - face_recognition_system.enhanced_main_system - INFO - System Capabilities:
+2025-07-03 15:31:03,782 - face_recognition_system.enhanced_main_system - INFO -   advanced_detection: AVAILABLE
+2025-07-03 15:31:03,783 - face_recognition_system.enhanced_main_system - INFO -   advanced_recognition: AVAILABLE
+2025-07-03 15:31:03,784 - face_recognition_system.enhanced_main_system - INFO -   advanced_alerts: FALLBACK
+2025-07-03 15:32:04,111 - face_recognition_system.advanced_face_detector - INFO - Initializing advanced face detection models...
+2025-07-03 15:32:04,112 - face_recognition_system.advanced_face_detector - INFO - Downloading YOLO face detection model...
+2025-07-03 15:32:04,171 - face_recognition_system.advanced_face_detector - INFO - YOLO model initialized successfully
+2025-07-03 15:32:04,172 - face_recognition_system.advanced_face_detector - INFO - ONNX runtime initialized with providers: ['CPUExecutionProvider']
+2025-07-03 15:32:04,172 - face_recognition_system.enhanced_main_system - INFO - Advanced face detector initialized
+2025-07-03 15:32:04,173 - face_recognition_system.advanced_face_recognizer - INFO - Using device: cpu
+2025-07-03 15:32:04,173 - face_recognition_system.advanced_face_recognizer - INFO - Initializing advanced face recognition models...
+2025-07-03 15:32:04,174 - face_recognition_system.advanced_face_recognizer - INFO - ONNX runtime configured with providers: ['CPUExecutionProvider']
+2025-07-03 15:32:04,174 - face_recognition_system.enhanced_main_system - INFO - Advanced face recognizer initialized
+2025-07-03 15:32:04,678 - face_recognition_system.alert_system - INFO - Sound system initialized successfully
+2025-07-03 15:32:04,680 - face_recognition_system.enhanced_main_system - INFO - Basic alert system initialized
+2025-07-03 15:32:04,681 - face_recognition_system.enhanced_main_system - INFO - Enhanced Facial Recognition System initialized
+2025-07-03 15:32:04,681 - face_recognition_system.enhanced_main_system - INFO - System Capabilities:
+2025-07-03 15:32:04,682 - face_recognition_system.enhanced_main_system - INFO -   advanced_detection: AVAILABLE
+2025-07-03 15:32:04,682 - face_recognition_system.enhanced_main_system - INFO -   advanced_recognition: AVAILABLE
+2025-07-03 15:32:04,682 - face_recognition_system.enhanced_main_system - INFO -   advanced_alerts: FALLBACK
+2025-07-03 15:32:04,726 - face_recognition_system.advanced_face_detector - INFO - Initializing advanced face detection models...
+2025-07-03 15:32:04,727 - face_recognition_system.advanced_face_detector - INFO - Downloading YOLO face detection model...
+2025-07-03 15:32:04,768 - face_recognition_system.advanced_face_detector - INFO - YOLO model initialized successfully
+2025-07-03 15:32:04,769 - face_recognition_system.advanced_face_detector - INFO - ONNX runtime initialized with providers: ['CPUExecutionProvider']
+2025-07-03 15:32:04,769 - face_recognition_system.enhanced_main_system - INFO - Advanced face detector initialized
+2025-07-03 15:32:04,770 - face_recognition_system.advanced_face_recognizer - INFO - Using device: cpu
+2025-07-03 15:32:04,771 - face_recognition_system.advanced_face_recognizer - INFO - Initializing advanced face recognition models...
+2025-07-03 15:32:04,771 - face_recognition_system.advanced_face_recognizer - INFO - ONNX runtime configured with providers: ['CPUExecutionProvider']
+2025-07-03 15:32:04,772 - face_recognition_system.enhanced_main_system - INFO - Advanced face recognizer initialized
+2025-07-03 15:32:04,773 - face_recognition_system.alert_system - INFO - Sound system initialized successfully
+2025-07-03 15:32:04,773 - face_recognition_system.enhanced_main_system - INFO - Basic alert system initialized
+2025-07-03 15:32:04,774 - face_recognition_system.enhanced_main_system - INFO - Enhanced Facial Recognition System initialized
+2025-07-03 15:32:04,774 - face_recognition_system.enhanced_main_system - INFO - System Capabilities:
+2025-07-03 15:32:04,775 - face_recognition_system.enhanced_main_system - INFO -   advanced_detection: AVAILABLE
+2025-07-03 15:32:04,775 - face_recognition_system.enhanced_main_system - INFO -   advanced_recognition: AVAILABLE
+2025-07-03 15:32:04,776 - face_recognition_system.enhanced_main_system - INFO -   advanced_alerts: FALLBACK
+2025-07-03 15:37:01,159 - face_recognition_system.advanced_face_detector - INFO - Initializing advanced face detection models...
+2025-07-03 15:37:01,159 - face_recognition_system.advanced_face_detector - INFO - Downloading YOLO face detection model...
+2025-07-03 15:37:01,212 - face_recognition_system.advanced_face_detector - INFO - YOLO model initialized successfully
+2025-07-03 15:37:01,212 - face_recognition_system.advanced_face_detector - INFO - ONNX runtime initialized with providers: ['CPUExecutionProvider']
+2025-07-03 15:37:01,213 - face_recognition_system.enhanced_main_system - INFO - Advanced face detector initialized
+2025-07-03 15:37:01,213 - face_recognition_system.advanced_face_recognizer - INFO - Using device: cpu
+2025-07-03 15:37:01,213 - face_recognition_system.advanced_face_recognizer - INFO - Initializing advanced face recognition models...
+2025-07-03 15:37:01,213 - face_recognition_system.advanced_face_recognizer - INFO - ONNX runtime configured with providers: ['CPUExecutionProvider']
+2025-07-03 15:37:01,213 - face_recognition_system.enhanced_main_system - INFO - Advanced face recognizer initialized
+2025-07-03 15:37:01,719 - face_recognition_system.alert_system - INFO - Sound system initialized successfully
+2025-07-03 15:37:01,719 - face_recognition_system.enhanced_main_system - INFO - Basic alert system initialized
+2025-07-03 15:37:01,720 - face_recognition_system.enhanced_main_system - INFO - Enhanced Facial Recognition System initialized
+2025-07-03 15:37:01,720 - face_recognition_system.enhanced_main_system - INFO - System Capabilities:
+2025-07-03 15:37:01,720 - face_recognition_system.enhanced_main_system - INFO -   advanced_detection: AVAILABLE
+2025-07-03 15:37:01,720 - face_recognition_system.enhanced_main_system - INFO -   advanced_recognition: AVAILABLE
+2025-07-03 15:37:01,720 - face_recognition_system.enhanced_main_system - INFO -   advanced_alerts: FALLBACK
+2025-07-03 15:37:01,743 - face_recognition_system.advanced_face_detector - INFO - Initializing advanced face detection models...
+2025-07-03 15:37:01,743 - face_recognition_system.advanced_face_detector - INFO - Downloading YOLO face detection model...
+2025-07-03 15:37:01,781 - face_recognition_system.advanced_face_detector - INFO - YOLO model initialized successfully
+2025-07-03 15:37:01,782 - face_recognition_system.advanced_face_detector - INFO - ONNX runtime initialized with providers: ['CPUExecutionProvider']
+2025-07-03 15:37:01,782 - face_recognition_system.enhanced_main_system - INFO - Advanced face detector initialized
+2025-07-03 15:37:01,782 - face_recognition_system.advanced_face_recognizer - INFO - Using device: cpu
+2025-07-03 15:37:01,782 - face_recognition_system.advanced_face_recognizer - INFO - Initializing advanced face recognition models...
+2025-07-03 15:37:01,782 - face_recognition_system.advanced_face_recognizer - INFO - ONNX runtime configured with providers: ['CPUExecutionProvider']
+2025-07-03 15:37:01,782 - face_recognition_system.enhanced_main_system - INFO - Advanced face recognizer initialized
+2025-07-03 15:37:01,782 - face_recognition_system.alert_system - INFO - Sound system initialized successfully
+2025-07-03 15:37:01,783 - face_recognition_system.enhanced_main_system - INFO - Basic alert system initialized
+2025-07-03 15:37:01,783 - face_recognition_system.enhanced_main_system - INFO - Enhanced Facial Recognition System initialized
+2025-07-03 15:37:01,783 - face_recognition_system.enhanced_main_system - INFO - System Capabilities:
+2025-07-03 15:37:01,783 - face_recognition_system.enhanced_main_system - INFO -   advanced_detection: AVAILABLE
+2025-07-03 15:37:01,783 - face_recognition_system.enhanced_main_system - INFO -   advanced_recognition: AVAILABLE
+2025-07-03 15:37:01,783 - face_recognition_system.enhanced_main_system - INFO -   advanced_alerts: FALLBACK
+2025-07-03 16:04:37,734 - face_recognition_system.advanced_face_detector - INFO - Initializing advanced face detection models...
+2025-07-03 16:04:37,735 - face_recognition_system.advanced_face_detector - INFO - Downloading YOLO face detection model...
+2025-07-03 16:04:37,793 - face_recognition_system.advanced_face_detector - INFO - YOLO model initialized successfully
+2025-07-03 16:04:37,793 - face_recognition_system.advanced_face_detector - INFO - ONNX runtime initialized with providers: ['CPUExecutionProvider']
+2025-07-03 16:04:37,794 - face_recognition_system.enhanced_main_system - INFO - Advanced face detector initialized
+2025-07-03 16:04:37,794 - face_recognition_system.advanced_face_recognizer - INFO - Using device: cpu
+2025-07-03 16:04:37,795 - face_recognition_system.advanced_face_recognizer - INFO - Initializing advanced face recognition models...
+2025-07-03 16:04:37,795 - face_recognition_system.advanced_face_recognizer - INFO - ONNX runtime configured with providers: ['CPUExecutionProvider']
+2025-07-03 16:04:37,795 - face_recognition_system.enhanced_main_system - INFO - Advanced face recognizer initialized
+2025-07-03 16:04:37,872 - face_recognition_system.alert_system - INFO - Sound system initialized successfully
+2025-07-03 16:04:37,874 - face_recognition_system.enhanced_main_system - INFO - Basic alert system initialized
+2025-07-03 16:04:37,875 - face_recognition_system.enhanced_main_system - INFO - Enhanced Facial Recognition System initialized
+2025-07-03 16:04:37,876 - face_recognition_system.enhanced_main_system - INFO - System Capabilities:
+2025-07-03 16:04:37,876 - face_recognition_system.enhanced_main_system - INFO -   advanced_detection: AVAILABLE
+2025-07-03 16:04:37,877 - face_recognition_system.enhanced_main_system - INFO -   advanced_recognition: AVAILABLE
+2025-07-03 16:04:37,878 - face_recognition_system.enhanced_main_system - INFO -   advanced_alerts: FALLBACK
