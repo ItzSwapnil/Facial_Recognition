@@ -11,7 +11,7 @@ A state-of-the-art facial recognition system using the latest 2025 computer visi
 ## 🌟 **Features**
 
 ### 🔬 **State-of-the-Art Technology (2025)**
-- **YuNet Face Detection** - Latest OpenCV 2024 SOTA face detector
+- **YuNet Face Detection** - Latest OpenCV 2025 SOTA face detector
 - **SFace Face Recognition** - Advanced embedding-based recognition
 - **ONNX Runtime** - Optimized inference with GPU acceleration
 - **3D Face Modeling** - Multi-angle capture for robust recognition
@@ -178,7 +178,7 @@ Facial_Recognition/
 
 ## 🧠 **Algorithms & Models**
 
-### **1. Face Detection: YuNet (2024 SOTA)**
+### **1. Face Detection: YuNet (2025 SOTA)**
 
 **Overview**: YuNet is OpenCV's latest face detection model, achieving state-of-the-art performance.
 
@@ -207,7 +207,7 @@ def detect_faces_yunet(self, image):
     return valid_faces
 ```
 
-### **2. Face Recognition: SFace (2024 SOTA)**
+### **2. Face Recognition: SFace (2025 SOTA)**
 
 **Overview**: SFace is OpenCV's advanced face recognition model using deep embeddings.
 

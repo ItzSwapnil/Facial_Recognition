@@ -1,1 +1,82 @@
-[]
+[
+  {
+    "person_name": "Swapnil",
+    "confidence": 0.9403764009475708,
+    "timestamp": "2025-07-03T22:00:41.150749",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9403764009475708,
+    "angle_type": "frontal",
+    "unique_id": "5156784a5b08"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 0.901246190071106,
+    "timestamp": "2025-07-03T22:00:47.354900",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.901246190071106,
+    "angle_type": "left_profile",
+    "unique_id": "d5ff371256a2"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 0.9163398146629333,
+    "timestamp": "2025-07-03T22:00:52.533180",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9163398146629333,
+    "angle_type": "right_profile",
+    "unique_id": "0d067b123776"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 0.9082159399986267,
+    "timestamp": "2025-07-03T22:01:20.987440",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9082159399986267,
+    "angle_type": "up_angle",
+    "unique_id": "3dfff799a8b3"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 0.9393209218978882,
+    "timestamp": "2025-07-03T22:01:28.887634",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9393209218978882,
+    "angle_type": "down_angle",
+    "unique_id": "f0f3ec8368e5"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-03T22:17:36.163940",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9344099164009094,
+    "angle_type": "frontal",
+    "unique_id": "988490b286db"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-03T22:17:40.386292",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9196406602859497,
+    "angle_type": "left_profile",
+    "unique_id": "ee122ef16128"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-03T22:17:43.045532",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9139106273651123,
+    "angle_type": "right_profile",
+    "unique_id": "8ee1e77cb860"
+  }
+]

@@ -3,8 +3,8 @@ Ultra-Modern Face Recognition System (2025 SOTA)
 ==============================================
 
 Using the absolute latest technology compatible with Python 3.13:
-- OpenCV DNN with YuNet face detection (2024 SOTA)
-- SFace face recognition (2024 SOTA) 
+- OpenCV DNN with YuNet face detection (2025 SOTA)
+- SFace face recognition (2025 SOTA) 
 - ONNX runtime optimized inference
 - Real-time processing with GPU acceleration
 - Advanced embedding similarity using cosine distance
@@ -62,8 +62,8 @@ class UltraModernFaceRecognition:
     2025 State-of-the-Art Face Recognition System
     
     Features:
-    - YuNet face detection (OpenCV 2024 SOTA)
-    - SFace face recognition (OpenCV 2024 SOTA)
+    - YuNet face detection (OpenCV 2025 SOTA)
+    - SFace face recognition (OpenCV 2025 SOTA)
     - ONNX runtime optimization
     - GPU acceleration
     - Real-time processing
@@ -133,7 +133,7 @@ class UltraModernFaceRecognition:
                 else:
                     self.console.print(f"AVAILABLE: {model_name}", style="green")
         
-        # Initialize face detection (YuNet - 2024 SOTA)
+        # Initialize face detection (YuNet - 2025 SOTA)
         yunet_path = self.models_dir / self.model_urls['yunet_face_detection']['filename']
         if yunet_path.exists():
             self.face_detector = cv2.FaceDetectorYN.create(
@@ -143,7 +143,7 @@ class UltraModernFaceRecognition:
                 score_threshold=self.detection_confidence,
                 nms_threshold=self.nms_threshold
             )
-            self.console.print("YuNet face detector initialized (2024 SOTA)", style="green")
+            self.console.print("YuNet face detector initialized (2025 SOTA)", style="green")
             self.yunet_available = True
         else:
             # Fallback to traditional method
@@ -153,13 +153,13 @@ class UltraModernFaceRecognition:
             self.console.print("Using fallback face detector", style="yellow")
             self.yunet_available = False
         
-        # Initialize face recognition (SFace - 2024 SOTA)
+        # Initialize face recognition (SFace - 2025 SOTA)
         sface_path = self.models_dir / self.model_urls['sface_recognition']['filename']
         if sface_path.exists():
             self.face_recognizer = cv2.FaceRecognizerSF.create(
                 str(sface_path), ""
             )
-            self.console.print("SFace recognizer initialized (2024 SOTA)", style="green")
+            self.console.print("SFace recognizer initialized (2025 SOTA)", style="green")
         else:
             self.face_recognizer = None
             self.console.print("SFace model not available", style="yellow")
@@ -198,7 +198,7 @@ class UltraModernFaceRecognition:
             self.console.print(f"❌ Failed to download {path.name}: {e}", style="red")
     
     def detect_faces_yunet(self, image: np.ndarray) -> List[np.ndarray]:
-        """Detect faces using YuNet (2024 SOTA)"""
+        """Detect faces using YuNet (2025 SOTA)"""
         h, w = image.shape[:2]
         
         # Set input size for this frame
@@ -233,7 +233,7 @@ class UltraModernFaceRecognition:
         return [(x, y, w, h) for x, y, w, h in faces]
     
     def extract_face_encoding_sface(self, image: np.ndarray, face_data: np.ndarray) -> np.ndarray:
-        """Extract face encoding using SFace (2024 SOTA)"""
+        """Extract face encoding using SFace (2025 SOTA)"""
         if self.face_recognizer is None:
             return self.extract_face_encoding_manual(image, face_data)
         
@@ -409,7 +409,7 @@ class UltraModernFaceRecognition:
         
         face_data = faces[0]
         
-        # Extract encoding using SFace (SOTA 2024)
+        # Extract encoding using SFace (SOTA 2025)
         encoding = self.extract_face_encoding_sface(image, face_data)
         
         if encoding is None or len(encoding) == 0:
@@ -1070,7 +1070,7 @@ class UltraModernFaceRecognition:
         Enhanced face addition with angle support for 3D modeling
         """
         faces = self.detect_faces_yunet(frame)
-        
+
         if len(faces) == 0:
             self.console.print("❌ No face detected in the frame", style="red")
             return False
@@ -1079,23 +1079,23 @@ class UltraModernFaceRecognition:
         face_data = faces[0]
         x, y, w, h = face_data[:4].astype(int)
         confidence = face_data[14] if len(face_data) > 14 else 1.0
-        
+
         # Extract face region
-        face_region = frame[max(0, y):min(frame.shape[0], y+h), 
+        face_region = frame[max(0, y):min(frame.shape[0], y+h),
                            max(0, x):min(frame.shape[1], x+w)]
-        
+
         if face_region.size == 0:
             self.console.print("❌ Failed to extract face region", style="red")
             return False
-        
+
         # Generate face encoding using SFace
         encoding = self.extract_face_encoding_sface(frame, face_data)
-        
+
         if encoding is not None:
             # Auto-detect pose if not specified
             if angle_type == "auto":
                 angle_type = self.detect_head_pose(face_region)
-            
+
             # Create face encoding with angle information
             face_encoding = ModernFaceEncoding(
                 encoding=encoding,
@@ -1107,13 +1107,13 @@ class UltraModernFaceRecognition:
                 detection_score=float(confidence),
                 angle_type=angle_type
             )
-            
+
             self.face_encodings.append(face_encoding)
             self.save_known_faces()
-            
+
             self.console.print(f"✅ Added {person_name} to face database using sface", style="green")
             self.console.print(f"   Embedding size: {len(encoding)}, Detection score: {confidence:.3f}, Angle: {angle_type}", style="cyan")
-            
+
             return True
         else:
             self.console.print("❌ Failed to generate face encoding", style="red")
@@ -1123,14 +1123,14 @@ class UltraModernFaceRecognition:
         """Interactive person management menu"""
         while True:
             self.console.print("\n👥 Person Management", style="bold cyan")
-            
+
             # Show person statistics
             person_stats = self.get_person_statistics()
-            
+
             if not person_stats:
                 self.console.print("📭 No persons in database", style="yellow")
                 return
-            
+
             # Display person table
             table = Table(title="👤 Persons in Database")
             table.add_column("Name", style="cyan")
@@ -1138,7 +1138,7 @@ class UltraModernFaceRecognition:
             table.add_column("Angles", style="yellow")
             table.add_column("Avg Confidence", style="magenta")
             table.add_column("Last Updated", style="blue")
-            
+
             for name, stats in person_stats.items():
                 table.add_row(
                     name,
@@ -1147,17 +1147,17 @@ class UltraModernFaceRecognition:
                     f"{stats['avg_confidence']:.1f}%",
                     stats['latest_timestamp'].strftime("%Y-%m-%d")
                 )
-            
+
             self.console.print(table)
-            
+
             self.console.print("\n📋 Management Options:")
             self.console.print("1. 🗑️ Delete person")
             self.console.print("2. 🔗 Merge persons")
             self.console.print("3. 📊 View detailed statistics")
             self.console.print("4. ↩️ Back to main menu")
-            
+
             choice = input("\n🎯 Enter your choice (1-4): ").strip()
-            
+
             if choice == '1':
                 name = input("👤 Enter person name to delete: ").strip()
                 if name and name in person_stats:
@@ -1166,7 +1166,7 @@ class UltraModernFaceRecognition:
                         self.delete_person(name)
                 else:
                     self.console.print("❌ Person not found", style="red")
-            
+
             elif choice == '2':
                 source = input("👤 Enter source person name (to merge from): ").strip()
                 target = input("👤 Enter target person name (to merge to): ").strip()
@@ -1178,7 +1178,7 @@ class UltraModernFaceRecognition:
                     self.merge_persons(source, target)
                 else:
                     self.console.print("❌ Source person not found", style="red")
-            
+
             elif choice == '3':
                 name = input("👤 Enter person name for detailed stats: ").strip()
                 if name and name in person_stats:
@@ -1189,14 +1189,14 @@ class UltraModernFaceRecognition:
                     self.console.print(f"🎯 Average confidence: {stats['avg_confidence']:.1f}%")
                     self.console.print(f"🔍 Average detection score: {stats['avg_detection_score']:.3f}")
                     self.console.print(f"📅 Last updated: {stats['latest_timestamp']}")
-                    
+
                     # Show individual encodings
                     enc_table = Table(title=f"Individual Encodings for {name}")
                     enc_table.add_column("ID", style="cyan")
                     enc_table.add_column("Angle", style="green")
                     enc_table.add_column("Confidence", style="yellow")
                     enc_table.add_column("Date", style="magenta")
-                    
+
                     for i, face in enumerate(stats['encodings'], 1):
                         enc_table.add_row(
                             getattr(face, 'unique_id', f'enc_{i}')[:8],
@@ -1204,15 +1204,15 @@ class UltraModernFaceRecognition:
                             f"{face.confidence:.1f}%",
                             face.timestamp.strftime("%Y-%m-%d %H:%M")
                         )
-                    
+
                     self.console.print(enc_table)
                     input("\nPress Enter to continue...")
                 else:
                     self.console.print("❌ Person not found", style="red")
-            
+
             elif choice == '4':
                 break
-            
+
             else:
                 self.console.print("❌ Invalid choice", style="red")
 
@@ -1427,8 +1427,8 @@ def main():
                 table.add_column("Version/Details", style="yellow")
                 
                 table.add_row("OpenCV", "✅ Available", cv2.__version__)
-                table.add_row("YuNet Face Detection", "✅ Available" if hasattr(fr_system, 'face_detector') else "❌ Not Available", "2024 SOTA")
-                table.add_row("SFace Recognition", "✅ Available" if fr_system.face_recognizer else "❌ Not Available", "2024 SOTA")
+                table.add_row("YuNet Face Detection", "✅ Available" if hasattr(fr_system, 'face_detector') else "❌ Not Available", "2025 SOTA")
+                table.add_row("SFace Recognition", "✅ Available" if fr_system.face_recognizer else "❌ Not Available", "2025 SOTA")
                 table.add_row("ONNX Runtime", "✅ Available" if ONNX_AVAILABLE else "❌ Not Available", "GPU Optimized" if ONNX_AVAILABLE else "N/A")
                 table.add_row("Known Faces", "📊 Loaded", str(len(fr_system.face_encodings)))
                 table.add_row("Recognition Threshold", "⚙️ Configured", str(fr_system.recognition_threshold))
