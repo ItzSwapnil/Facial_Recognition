@@ -382,7 +382,7 @@ notification.notify(
 |-----------|----------------|----------------|-------------|
 | YuNet Detection | 20-35 FPS      | 60-120 FPS     | 300-500 MB  |
 | SFace Recognition | 25-35 FPS      | 50-80 FPS      | 30-400 MB   |
-| Full Pipeline | 10-25 FPS      | 40-70 FPS      | 1000-2000 MB |
+| Full Pipeline | 10-30 FPS      | 40-70 FPS      | 1000-2000 MB |
 
 ### **Accuracy Metrics**
 
