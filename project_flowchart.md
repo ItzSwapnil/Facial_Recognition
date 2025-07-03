@@ -351,18 +351,14 @@ sequenceDiagram
 3. **Face Detection**: Multiple algorithm support
 4. **Feature Extraction**: Advanced encoding methods
 5. **Recognition**: Similarity matching
-6. **Alert Processing**: Multi-channel notifications
-7. **Database Updates**: Real-time learning
+6. **Database Updates**: Real-time learning
 
 ### 🚨 **Alert Mechanisms**
 - **Desktop Notifications**: System-level alerts
 - **Sound Alerts**: Audio feedback
-- **Webhooks**: HTTP API integration
-- **Email Alerts**: SMTP notifications
 - **Live Display**: Real-time visualization
 
 ## 🔧 **Performance Optimizations**
-- **Multi-threading**: Parallel processing
 - **Frame Buffering**: Smooth video handling
 - **Model Caching**: Fast inference
 - **GPU Acceleration**: CUDA support
