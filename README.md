@@ -378,7 +378,7 @@ notification.notify(
 
 ### **Benchmarks**
 
-| Component | CPU (Intel i9) | GPU (RTX 3070) | Memory Usage |
+| Component | CPU (Intel i7) | GPU (RTX 3070) | Memory Usage |
 |-----------|----------------|----------------|--------------|
 | YuNet Detection | 20-35 FPS      | 60-120 FPS     | 300-500 MB   |
 | SFace Recognition | 25-35 FPS      | 50-80 FPS      | 300-400 MB   |
