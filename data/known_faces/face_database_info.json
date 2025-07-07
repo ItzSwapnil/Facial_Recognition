@@ -1,82 +1,552 @@
 [
   {
     "person_name": "Swapnil",
-    "confidence": 0.9403764009475708,
-    "timestamp": "2025-07-03T22:00:41.150749",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T06:49:20.471964",
     "model_used": "sface",
     "embedding_size": 128,
-    "detection_score": 0.9403764009475708,
+    "detection_score": 0.9452716708183289,
     "angle_type": "frontal",
-    "unique_id": "5156784a5b08"
+    "unique_id": "dcf3dc8d40ca"
   },
   {
     "person_name": "Swapnil",
-    "confidence": 0.901246190071106,
-    "timestamp": "2025-07-03T22:00:47.354900",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T06:49:34.260946",
     "model_used": "sface",
     "embedding_size": 128,
-    "detection_score": 0.901246190071106,
+    "detection_score": 0.9085304737091064,
     "angle_type": "left_profile",
-    "unique_id": "d5ff371256a2"
+    "unique_id": "ae7fde74c544"
   },
   {
     "person_name": "Swapnil",
-    "confidence": 0.9163398146629333,
-    "timestamp": "2025-07-03T22:00:52.533180",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T06:49:36.902324",
     "model_used": "sface",
     "embedding_size": 128,
-    "detection_score": 0.9163398146629333,
+    "detection_score": 0.903901219367981,
     "angle_type": "right_profile",
-    "unique_id": "0d067b123776"
+    "unique_id": "4a677b058fa2"
   },
   {
     "person_name": "Swapnil",
-    "confidence": 0.9082159399986267,
-    "timestamp": "2025-07-03T22:01:20.987440",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T06:50:45.045869",
     "model_used": "sface",
     "embedding_size": 128,
-    "detection_score": 0.9082159399986267,
+    "detection_score": 0.8413417935371399,
     "angle_type": "up_angle",
-    "unique_id": "3dfff799a8b3"
+    "unique_id": "d3044c4dfdf6"
   },
   {
     "person_name": "Swapnil",
-    "confidence": 0.9393209218978882,
-    "timestamp": "2025-07-03T22:01:28.887634",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T06:50:50.909712",
     "model_used": "sface",
     "embedding_size": 128,
-    "detection_score": 0.9393209218978882,
+    "detection_score": 0.9097933769226074,
     "angle_type": "down_angle",
-    "unique_id": "f0f3ec8368e5"
+    "unique_id": "caab9002f5ef"
   },
   {
     "person_name": "Swapnil",
     "confidence": 1.0,
-    "timestamp": "2025-07-03T22:17:36.163940",
+    "timestamp": "2025-07-06T10:45:43.380277",
     "model_used": "sface",
     "embedding_size": 128,
-    "detection_score": 0.9344099164009094,
+    "detection_score": 0.9132410287857056,
     "angle_type": "frontal",
-    "unique_id": "988490b286db"
+    "unique_id": "5c044f2383de"
   },
   {
     "person_name": "Swapnil",
     "confidence": 1.0,
-    "timestamp": "2025-07-03T22:17:40.386292",
+    "timestamp": "2025-07-06T10:47:21.642299",
     "model_used": "sface",
     "embedding_size": 128,
-    "detection_score": 0.9196406602859497,
+    "detection_score": 0.9283699989318848,
+    "angle_type": "frontal",
+    "unique_id": "2937667514c0"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T10:47:32.307066",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9040849804878235,
     "angle_type": "left_profile",
-    "unique_id": "ee122ef16128"
+    "unique_id": "416b847946be"
   },
   {
     "person_name": "Swapnil",
     "confidence": 1.0,
-    "timestamp": "2025-07-03T22:17:43.045532",
+    "timestamp": "2025-07-06T10:47:37.428744",
     "model_used": "sface",
     "embedding_size": 128,
-    "detection_score": 0.9139106273651123,
+    "detection_score": 0.907514214515686,
     "angle_type": "right_profile",
-    "unique_id": "8ee1e77cb860"
+    "unique_id": "7dd0311f08f8"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T10:48:35.575283",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.8218327760696411,
+    "angle_type": "up_angle",
+    "unique_id": "38ea57d5ed9c"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T10:48:38.836699",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.8907760977745056,
+    "angle_type": "down_angle",
+    "unique_id": "6bcf9a9fec65"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T10:49:02.232136",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9097586274147034,
+    "angle_type": "frontal",
+    "unique_id": "3fc41105e021"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T10:49:08.589371",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9110763669013977,
+    "angle_type": "left_profile",
+    "unique_id": "ba7a8732bd9f"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T10:49:11.424296",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.838071346282959,
+    "angle_type": "right_profile",
+    "unique_id": "ef297f6ab26e"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T10:49:20.269901",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9156070351600647,
+    "angle_type": "up_angle",
+    "unique_id": "f7a05e9e47c8"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T10:49:26.762682",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.8878850340843201,
+    "angle_type": "down_angle",
+    "unique_id": "f5a90181ae19"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:50:18.228660",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9460113644599915,
+    "angle_type": "frontal",
+    "unique_id": "06386d5eb42f"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:50:25.342355",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9297428727149963,
+    "angle_type": "left_profile",
+    "unique_id": "683a0a567cf5"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:50:28.395069",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9075744152069092,
+    "angle_type": "right_profile",
+    "unique_id": "62ca5abf25a4"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:50:32.858000",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.8081541657447815,
+    "angle_type": "up_angle",
+    "unique_id": "e888a1f11de7"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:50:35.914329",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9311021566390991,
+    "angle_type": "down_angle",
+    "unique_id": "29625469c330"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:50:44.518718",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9455094933509827,
+    "angle_type": "frontal",
+    "unique_id": "0b6a266f5250"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:50:49.233311",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9357122778892517,
+    "angle_type": "left_profile",
+    "unique_id": "69fb03758565"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:50:52.113475",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9160276055335999,
+    "angle_type": "right_profile",
+    "unique_id": "923b4e453430"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:50:58.023802",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9206745028495789,
+    "angle_type": "up_angle",
+    "unique_id": "2e6c7fcccde4"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:51:00.869707",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9288384914398193,
+    "angle_type": "down_angle",
+    "unique_id": "2f1081de02a7"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:52:52.671651",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9450610876083374,
+    "angle_type": "frontal",
+    "unique_id": "5a0699670b77"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:52:56.146122",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9367752075195312,
+    "angle_type": "left_profile",
+    "unique_id": "5af64ac9475a"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:52:59.360893",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9176816344261169,
+    "angle_type": "right_profile",
+    "unique_id": "4e8f05f6b8c5"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:53:19.522087",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9239214062690735,
+    "angle_type": "frontal",
+    "unique_id": "872c4096dd90"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:53:23.501081",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9250622987747192,
+    "angle_type": "left_profile",
+    "unique_id": "9672e0ff2405"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:53:29.607877",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9146477580070496,
+    "angle_type": "right_profile",
+    "unique_id": "e22e12cd17c2"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:53:43.421770",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9436219334602356,
+    "angle_type": "frontal",
+    "unique_id": "58d4a3edec7b"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:53:45.652157",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9305024147033691,
+    "angle_type": "left_profile",
+    "unique_id": "b475e5e3e2f0"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:53:47.746333",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9179192781448364,
+    "angle_type": "right_profile",
+    "unique_id": "6be6be228a63"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:57:52.492438",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.8055208325386047,
+    "angle_type": "frontal",
+    "unique_id": "cc19cc978dec"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:57:57.166462",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.8210634589195251,
+    "angle_type": "left_profile",
+    "unique_id": "9115cda3a5d3"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:58:03.564858",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.8191680908203125,
+    "angle_type": "right_profile",
+    "unique_id": "5fd18d286d3f"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:59:04.162347",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.8466634154319763,
+    "angle_type": "frontal",
+    "unique_id": "b112afbbeba9"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T13:59:17.739073",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.819908082485199,
+    "angle_type": "left_profile",
+    "unique_id": "b2d68f66d2b6"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T14:00:00.698277",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.8028922080993652,
+    "angle_type": "right_profile",
+    "unique_id": "a1b839636ccb"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T14:00:15.968062",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.8041163682937622,
+    "angle_type": "frontal",
+    "unique_id": "3ac616ddab6a"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T14:01:02.140626",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.807433545589447,
+    "angle_type": "left_profile",
+    "unique_id": "ae911a1d9068"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T14:01:21.609369",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.8144010305404663,
+    "angle_type": "right_profile",
+    "unique_id": "2a8716ba4435"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T14:01:38.125538",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9084303975105286,
+    "angle_type": "frontal",
+    "unique_id": "d5306e43a055"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T14:01:40.862609",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.874356746673584,
+    "angle_type": "left_profile",
+    "unique_id": "e204ffacad6c"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T14:01:49.703546",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.8399461507797241,
+    "angle_type": "right_profile",
+    "unique_id": "52bb94155fd4"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T23:54:51.328378",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9070473313331604,
+    "angle_type": "frontal",
+    "unique_id": "5c8f63976155"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T23:54:57.694653",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.8656579852104187,
+    "angle_type": "left_profile",
+    "unique_id": "cead4bdd920c"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T23:55:03.289410",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.847816526889801,
+    "angle_type": "right_profile",
+    "unique_id": "c91539b44677"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T23:55:24.247648",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.91475909948349,
+    "angle_type": "up_angle",
+    "unique_id": "10459fcfc126"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-06T23:55:29.466333",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.8522994518280029,
+    "angle_type": "down_angle",
+    "unique_id": "9eb9d2d5623d"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-07T09:54:48.486153",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.9114981293678284,
+    "angle_type": "frontal",
+    "unique_id": "c8ddabe133d9"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-07T09:55:02.043592",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.8990997672080994,
+    "angle_type": "left_profile",
+    "unique_id": "7c8c30db3853"
+  },
+  {
+    "person_name": "Swapnil",
+    "confidence": 1.0,
+    "timestamp": "2025-07-07T09:55:06.497380",
+    "model_used": "sface",
+    "embedding_size": 128,
+    "detection_score": 0.8747596144676208,
+    "angle_type": "right_profile",
+    "unique_id": "8fe784c54d92"
   }
 ]
