@@ -10,6 +10,7 @@ from pathlib import Path
 import numpy as np
 from typing import List, Dict, Optional, Tuple
 import cv2
+import importlib.util
 
 logger = logging.getLogger(__name__)
 
@@ -28,9 +29,15 @@ class OnnxRuntimeHelper:
         self.error_message = None
         self.opencv_onnx_available = self._check_opencv_onnx()
         self.opencv_dnn_cuda = self._check_opencv_cuda()
+        self.fallback_to_opencv = False
 
         # Initialize
         self.check_onnx_availability()
+
+        # If ONNX Runtime is not available but OpenCV ONNX is, set fallback mode
+        if not self.onnx_available and self.opencv_onnx_available:
+            logger.info("Setting up OpenCV as fallback for ONNX models")
+            self.fallback_to_opencv = True
 
     def _check_opencv_onnx(self) -> bool:
         """Check if OpenCV has ONNX support built in"""
@@ -54,7 +61,8 @@ class OnnxRuntimeHelper:
         try:
             # Check if OpenCV was built with CUDA support
             cv_info = cv2.getBuildInformation()
-            has_cuda = "NVIDIA CUDA" in cv_info and "YES" in cv_info.split("NVIDIA CUDA")[1].split("\n")[0]
+            # Safer check for CUDA support
+            has_cuda = "CUDA:" in cv_info and "YES" in cv_info.split("CUDA:")[1].split("\n")[0]
 
             if has_cuda:
                 logger.info("OpenCV has CUDA support built in")
@@ -72,13 +80,74 @@ class OnnxRuntimeHelper:
             logger.error(f"Error checking OpenCV CUDA support: {str(e)}")
             return False
 
+    def _check_dll_exists(self) -> bool:
+        """Check if the required ONNX Runtime DLL files exist"""
+        try:
+            # Check if onnxruntime module spec exists
+            ort_spec = importlib.util.find_spec("onnxruntime")
+            if not ort_spec:
+                return False
+
+            # Get the package directory
+            ort_dir = Path(ort_spec.origin).parent
+
+            # Check for the core DLL
+            core_dll = ort_dir / "onnxruntime_pybind11_state.dll"
+            return core_dll.exists()
+        except Exception as e:
+            logger.error(f"Error checking ONNX Runtime DLLs: {str(e)}")
+            return False
+
+    def fix_missing_dlls(self) -> bool:
+        """
+        Attempt to fix missing DLL issues by installing the CPU version of ONNX Runtime
+        Returns True if successful
+        """
+        logger.info("Attempting to fix missing ONNX Runtime DLLs")
+        try:
+            # Try to install the CPU version which has better compatibility
+            import subprocess
+            import sys
+
+            logger.info("Installing onnxruntime CPU version")
+            result = subprocess.run(
+                [sys.executable, "-m", "uv", "add", "onnxruntime"],
+                capture_output=True,
+                text=True
+            )
+
+            if result.returncode == 0:
+                logger.info("Successfully installed onnxruntime")
+                # Re-check if DLLs now exist
+                if self._check_dll_exists():
+                    logger.info("ONNX Runtime DLLs are now available")
+                    # Re-initialize since we've fixed the issue
+                    self.check_onnx_availability()
+                    return True
+                else:
+                    logger.error("DLLs still missing after installation")
+                    return False
+            else:
+                logger.error(f"Failed to install onnxruntime: {result.stderr}")
+                return False
+        except Exception as e:
+            logger.error(f"Error fixing missing DLLs: {str(e)}")
+            return False
+
     def check_onnx_availability(self) -> bool:
         """
         Check if ONNX Runtime is available and which providers are supported
         Returns True if ONNX Runtime is available
         """
+        # First, check if the DLL files exist for Windows
+        if sys.platform == 'win32' and not self._check_dll_exists():
+            self.error_message = "Required ONNX Runtime DLL files are missing"
+            logger.warning(self.error_message)
+            self.onnx_available = False
+            return False
+
         try:
-            # First, try to import ONNX Runtime
+            # Try to import ONNX Runtime
             import onnxruntime as ort
             self.onnx_version = ort.__version__
 
@@ -175,6 +244,9 @@ class OnnxRuntimeHelper:
         if self.opencv_dnn_cuda:
             opencv_status += " with CUDA acceleration"
 
+        if self.fallback_to_opencv:
+            return f"[FALLBACK] Using OpenCV's native ONNX support. {self.error_message}\n{opencv_status}"
+
         # Then, check standalone ONNX Runtime
         if not self.onnx_available:
             return f"[NOT AVAILABLE] ONNX Runtime not available: {self.error_message}\n{opencv_status}"
@@ -238,21 +310,56 @@ class OnnxRuntimeHelper:
             return None
 
         try:
-            # Configure OpenCV DNN to use CUDA if available
-            if self.opencv_dnn_cuda:
-                logger.info("Setting OpenCV DNN to use CUDA")
+            # Check if CUDA is available in OpenCV
+            has_cuda_backend = hasattr(cv2.dnn, 'DNN_BACKEND_CUDA')
+            has_cuda_target = hasattr(cv2.dnn, 'DNN_TARGET_CUDA')
+
+            # Check CUDA device availability
+            cuda_device_count = 0
+            if hasattr(cv2, 'cuda'):
+                try:
+                    cuda_device_count = cv2.cuda.getCudaEnabledDeviceCount()
+                except Exception:
+                    pass
+
+            # Determine if CUDA can be used
+            cuda_available = has_cuda_backend and has_cuda_target and cuda_device_count > 0
+
+            if cuda_available:
+                logger.info("Setting OpenCV DNN to use CUDA backend")
                 cv2.dnn.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
                 cv2.dnn.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
+                self.opencv_dnn_cuda = True
 
                 # Configure specific network if provided
                 if net:
                     net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
                     net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
+                    logger.info("Network configured to use CUDA")
             else:
-                logger.info("Using OpenCV DNN with CPU")
-                if net:
-                    net.setPreferableBackend(cv2.dnn.DNN_BACKEND_OPENCV)
-                    net.setPreferableTarget(cv2.dnn.DNN_TARGET_CPU)
+                # Check for OpenCL as a fallback
+                has_opencl = cv2.ocl.haveOpenCL()
+                if has_opencl:
+                    cv2.ocl.setUseOpenCL(True)
+                    if cv2.ocl.useOpenCL():
+                        logger.info("Setting OpenCV DNN to use OpenCL")
+                        cv2.dnn.setPreferableBackend(cv2.dnn.DNN_BACKEND_DEFAULT)
+                        cv2.dnn.setPreferableTarget(cv2.dnn.DNN_TARGET_OPENCL)
+
+                        if net:
+                            net.setPreferableBackend(cv2.dnn.DNN_BACKEND_DEFAULT)
+                            net.setPreferableTarget(cv2.dnn.DNN_TARGET_OPENCL)
+                            logger.info("Network configured to use OpenCL")
+                    else:
+                        logger.info("OpenCL available but not enabled, using CPU")
+                        if net:
+                            net.setPreferableBackend(cv2.dnn.DNN_BACKEND_OPENCV)
+                            net.setPreferableTarget(cv2.dnn.DNN_TARGET_CPU)
+                else:
+                    logger.info("Using OpenCV DNN with CPU")
+                    if net:
+                        net.setPreferableBackend(cv2.dnn.DNN_BACKEND_OPENCV)
+                        net.setPreferableTarget(cv2.dnn.DNN_TARGET_CPU)
 
             return net
         except Exception as e:
@@ -263,15 +370,39 @@ class OnnxRuntimeHelper:
         """
         Create an ONNX Runtime inference session with appropriate error handling
 
+        If ONNX Runtime is not available, falls back to OpenCV for model loading
+        if possible.
+
         Args:
             model_path: Path to the ONNX model file
             **kwargs: Additional arguments to pass to ort.InferenceSession
 
         Returns:
-            InferenceSession object or None if ONNX Runtime is not available
+            InferenceSession object or OpenCV DNN model if fallback, or None if neither is available
         """
+        # If fallback mode is enabled, use OpenCV
+        if self.fallback_to_opencv:
+            try:
+                logger.info(f"Using OpenCV fallback for ONNX model: {model_path}")
+                net = cv2.dnn.readNetFromONNX(model_path)
+                return self.configure_opencv_dnn(net)
+            except Exception as e:
+                logger.error(f"OpenCV fallback failed: {str(e)}")
+                return None
+
+        # Attempt to use ONNX Runtime if available
         if not self.onnx_available:
             logger.warning("Cannot create inference session: ONNX Runtime not available")
+
+            # Try OpenCV fallback if not already in fallback mode
+            if self.opencv_onnx_available:
+                try:
+                    logger.info(f"Attempting OpenCV fallback for ONNX model: {model_path}")
+                    net = cv2.dnn.readNetFromONNX(model_path)
+                    self.fallback_to_opencv = True
+                    return self.configure_opencv_dnn(net)
+                except Exception as e:
+                    logger.error(f"OpenCV fallback failed: {str(e)}")
             return None
 
         try:
@@ -297,7 +428,21 @@ class OnnxRuntimeHelper:
 
         except Exception as e:
             logger.error(f"Failed to create ONNX inference session: {str(e)}")
+
+            # Try OpenCV fallback if ONNX Runtime fails
+            if self.opencv_onnx_available:
+                try:
+                    logger.info(f"ONNX Runtime failed, trying OpenCV fallback for: {model_path}")
+                    net = cv2.dnn.readNetFromONNX(model_path)
+                    self.fallback_to_opencv = True
+                    return self.configure_opencv_dnn(net)
+                except Exception as cv_err:
+                    logger.error(f"OpenCV fallback failed: {str(cv_err)}")
             return None
 
-# Singleton instance for app-wide use
+    def is_opencv_model(self, model):
+        """Check if a model is an OpenCV DNN model"""
+        return isinstance(model, cv2.dnn.Net)
+
+# Create a global instance of the OnnxRuntimeHelper for other modules to import
 onnx_helper = OnnxRuntimeHelper()

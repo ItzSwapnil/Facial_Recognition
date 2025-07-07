@@ -78,6 +78,9 @@ class UltraModernFaceRecognitionSystem:
         self.known_faces_dir.mkdir(parents=True, exist_ok=True)
         self.models_dir.mkdir(parents=True, exist_ok=True)
 
+        # Check ONNX Runtime and try to fix if there are issues
+        self._check_and_fix_onnx_runtime()
+
         # Initialize managers
         self.camera_manager = CameraManager(self.console)
         self.db_manager = DatabaseManager(self.known_faces_dir, self.console)
@@ -110,6 +113,21 @@ class UltraModernFaceRecognitionSystem:
 
         # Log ONNX status
         logger.info(onnx_helper.get_status_message())
+
+    def _check_and_fix_onnx_runtime(self):
+        """Check ONNX Runtime status and attempt to fix if there are issues"""
+        logger.info("Checking ONNX Runtime status")
+
+        if not onnx_helper.onnx_available and "Required ONNX Runtime DLL files are missing" in onnx_helper.error_message:
+            logger.warning("Missing ONNX Runtime DLLs detected - attempting to fix")
+
+            # Try to fix the missing DLLs
+            if onnx_helper.fix_missing_dlls():
+                logger.info("Successfully fixed ONNX Runtime DLL issues")
+                # ONNX helper is already reinitialized in the fix method
+            else:
+                logger.warning("Could not fix ONNX Runtime DLL issues, using fallback to OpenCV")
+                # The fallback to OpenCV will be handled by the onnx_helper automatically
 
     def add_known_face(self, image: np.ndarray, person_name: str, angle_type: str = "frontal") -> bool:
         """
