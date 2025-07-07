@@ -29,6 +29,7 @@ A state-of-the-art facial recognition system using the latest 2025 computer visi
 - **Data Persistence** - Automatic face database management
 - **Rich Console UI** - Professional terminal interface
 - **Error Handling** - Comprehensive exception management
+- **GUI Support** - Both PyQt6 and Tkinter interfaces
 
 ## 📋 **Table of Contents**
 
@@ -91,15 +92,30 @@ For enhanced performance with NVIDIA GPUs:
 pip install onnxruntime-gpu
 
 # Verify CUDA installation
-python -c "import onnxruntime as ort; print(ort.get_available_providers())"
+python cuda_setup.py
+# or
+python test_cuda.py
+```
+
+### **ONNX Optimization (Optional)**
+For better performance with ONNX models:
+```bash
+# Set up ONNX optimizations
+python setup_onnx_gpu.py
+
+# Test ONNX configuration
+python test_onnx.py
 ```
 
 ## 🚀 **Quick Start**
 
 ### **1. Basic Usage**
 ```bash
-# Run the main system
+# Run the main system with CLI
 python ultra_modern_face_recognition.py
+
+# Run with GUI interface
+python gui_main.py
 
 # Follow the interactive menu:
 # 1. Add face (simple)
@@ -120,10 +136,10 @@ python ultra_modern_face_recognition.py
 
 ### **3. Example Workflow**
 ```python
-from ultra_modern_face_recognition import UltraModernFaceRecognition
+from src.face_recognition.core.system import FacialRecognitionSystem
 
 # Initialize system
-fr_system = UltraModernFaceRecognition()
+fr_system = FacialRecognitionSystem()
 
 # Add a person from image
 import cv2
@@ -143,7 +159,7 @@ Ultra-Modern Face Recognition System
 ├── 🧠 Recognition Layer (SFace SOTA)  
 ├── ⚡ Optimization Layer (ONNX Runtime)
 ├── 💾 Data Layer (Pickle + JSON)
-├── 🎯 UI Layer (Rich Console)
+├── 🎮 UI Layer (PyQt6/Tkinter)
 └── 📱 Notification Layer (Plyer + Pygame)
 ```
 
@@ -162,18 +178,31 @@ graph TD
 ### **File Structure**
 ```
 Facial_Recognition/
-├── ultra_modern_face_recognition.py    # Main system file
+├── gui_main.py                         # GUI entry point
+├── ultra_modern_face_recognition.py    # CLI entry point
+├── main.py                             # Legacy entry point
 ├── data/                               # Data directory
-│   ├── known_faces/                   # Face database
-│   │   ├── modern_face_database.pkl  # Binary database
-│   │   └── face_database_info.json   # Readable database info
-│   ├── models/                        # AI models
+│   ├── known_faces/                    # Face database
+│   │   ├── modern_face_database.pkl    # Binary database
+│   │   └── face_database_info.json     # Readable database info
+│   ├── models/                         # AI models
 │   │   ├── yunet_face_detection_2023mar.onnx
 │   │   └── sface_recognition_2021dec.onnx
-│   └── recognition_images/            # Saved recognition images
-├── logs/                              # System logs
-├── pyproject.toml                     # Project configuration
-└── README.md                          # This file
+│   └── settings/                       # System settings
+│       └── notification_settings.json  # Alert configurations
+├── logs/                               # System logs
+│   ├── face_recognition.log            # Main system logs
+│   ├── gui_application.log             # GUI-specific logs
+│   └── face_recognition_20250705.log   # Date-specific logs
+├── src/                                # Source code
+│   └── face_recognition/               # Main package
+│       ├── core/                       # Core functionality
+│       ├── models/                     # Model definitions
+│       ├── ui/                         # UI components
+│       └── utils/                      # Utility functions
+├── pyproject.toml                      # Project configuration
+├── project_flowchart.md                # Architecture documentation
+└── README.md                           # This file
 ```
 
 ## 🧠 **Algorithms & Models**
@@ -282,21 +311,31 @@ python ultra_modern_face_recognition.py
 # Choose option 2, follow angle instructions
 ```
 
+#### **Using the GUI**
+```bash
+# Start the GUI interface
+python gui_main.py
+
+# Click "Add Person" and follow the on-screen prompts
+```
+
 ### **Live Recognition**
 
-#### **Basic Live Recognition**
+#### **Basic Live Recognition (CLI)**
 ```python
 # Start live recognition with default camera
-fr_system = UltraModernFaceRecognition()
+from src.face_recognition.core.system import FacialRecognitionSystem
+
+fr_system = FacialRecognitionSystem()
 fr_system.run_live_recognition()
 ```
 
-#### **Advanced Live Recognition**
-```python
-# Custom camera and settings
-fr_system.current_camera_index = 1  # Use camera 1
-fr_system.detection_confidence = 0.7  # Lower threshold
-fr_system.run_live_recognition(camera_index=1)
+#### **Advanced Live Recognition (GUI)**
+```bash
+# Launch the GUI
+python gui_main.py
+
+# Click "Start Recognition" in the interface
 ```
 
 ### **Person Management**
@@ -339,7 +378,7 @@ The system automatically detects available cameras on startup:
 
 ### **Recognition Settings**
 ```python
-# In UltraModernFaceRecognition.__init__()
+# In FacialRecognitionSystem.__init__()
 self.detection_confidence = 0.8      # Face detection threshold
 self.recognition_threshold = 0.6     # Face recognition threshold  
 self.nms_threshold = 0.3            # Non-maximum suppression
@@ -351,7 +390,7 @@ self.nms_threshold = 0.3            # Non-maximum suppression
 self.input_size = (320, 240)        # Detection input size
 self.recognition_size = (112, 112)  # Recognition input size
 
-# Frame rate control (in run_live_recognition)
+# Frame rate control
 cap.set(cv2.CAP_PROP_FPS, 30)       # Camera FPS limit
 cv2.waitKey(1)                       # Display refresh rate
 ```
@@ -367,10 +406,13 @@ self.models_dir = self.data_dir / "models"
 ### **Notification Settings**
 ```python
 # Desktop notifications
-notification.notify(
+from src.face_recognition.utils.notification_settings import NotificationManager
+
+notification_manager = NotificationManager()
+notification_manager.send_notification(
     title='🎯 Person Detected!',
-    timeout=5,
-    app_name='Ultra-Modern Face Recognition'
+    message=f"Recognized: {person_name}",
+    timeout=5
 )
 ```
 
@@ -397,8 +439,9 @@ notification.notify(
 
 1. **Camera Resolution**: Use 1280x720 for best balance
 2. **Detection Frequency**: Process every 2nd frame for 2x performance  
-3. **GPU Acceleration**: Install `onnxruntime-gpu` for 3x speedup
+3. **GPU Acceleration**: Use CUDA with `optimize_performance.py`
 4. **Memory**: Close other applications for smoother operation
+5. **ONNX Optimization**: Run `setup_onnx_gpu.py` for GPU acceleration
 
 ## 🔧 **Troubleshooting**
 
@@ -429,11 +472,13 @@ if frame_count % 2 == 0:  # Process every 2nd frame
     results = self.recognize_faces(frame)
 ```
 
-#### **ONNX Model Download Issues**
+#### **ONNX Runtime Issues**
 ```bash
-# Manual download (if automatic fails)
-# YuNet: https://github.com/opencv/opencv_zoo/raw/main/models/face_detection_yunet/face_detection_yunet_2023mar.onnx
-# SFace: https://github.com/opencv/opencv_zoo/raw/main/models/face_recognition_sface/face_recognition_sface_2021dec.onnx
+# Diagnose ONNX runtime problems
+python diagnose_onnx.py
+
+# Fix CUDA-related issues
+python fix_onnx_cuda.py
 ```
 
 ### **Error Messages**
@@ -449,17 +494,20 @@ pip install onnxruntime>=1.20.0
 # For GPU: pip install onnxruntime-gpu
 ```
 
-#### **"Camera index out of range"**
-- **Cause**: Trying non-existent camera indices
-- **Solution**: Use system camera detection (option 6)
+#### **"GPU acceleration not working"**
+```bash
+# Run GPU setup script
+python setup_gpu.py
+```
 
 ## 📚 **API Reference**
 
-### **UltraModernFaceRecognition Class**
+### **FacialRecognitionSystem Class**
 
 #### **Initialization**
 ```python
-fr_system = UltraModernFaceRecognition(data_dir="data")
+from src.face_recognition.core.system import FacialRecognitionSystem
+fr_system = FacialRecognitionSystem(data_dir="data")
 ```
 
 #### **Core Methods**
@@ -504,6 +552,26 @@ success = fr_system.delete_person("Person Name")
 success = fr_system.merge_persons("Source", "Target")
 ```
 
+### **GUI Classes**
+
+#### **PyQt6 Interface**
+```python
+from src.face_recognition.ui.qt_gui import FaceRecognitionQtGUI
+
+# Launch GUI
+gui = FaceRecognitionQtGUI()
+gui.run()
+```
+
+#### **Tkinter Interface**
+```python
+from src.face_recognition.ui.tk_gui import FaceRecognitionTkGUI
+
+# Launch fallback GUI
+gui = FaceRecognitionTkGUI()
+gui.run()
+```
+
 ### **Configuration Options**
 
 #### **Detection Parameters**
@@ -535,8 +603,8 @@ uv sync --dev
 python -m pytest tests/
 
 # Code formatting
-black ultra_modern_face_recognition.py
-isort ultra_modern_face_recognition.py
+black src/ ultra_modern_face_recognition.py gui_main.py
+isort src/ ultra_modern_face_recognition.py gui_main.py
 ```
 
 ### **Contributing Guidelines**
@@ -562,7 +630,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **OpenCV Team** - For YuNet and SFace models
 - **ONNX Runtime** - For optimized inference engine
-- **Rich Library** - For beautiful console interface
+- **PyQt6/Tkinter** - For GUI frameworks
 - **Plyer** - For cross-platform notifications
 
 

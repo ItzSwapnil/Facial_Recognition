@@ -1,4 +1,4 @@
-# 🔄 Facial Recognition System - Complete Workflow & Architecture
+# 🔄 Ultra-Modern Facial Recognition System - Complete Architecture (2025)
 
 ## 📊 System Overview Flowchart
 
@@ -6,35 +6,35 @@
 graph TB
     %% Entry Points
     START([👤 User Launch]) --> ENTRY{Entry Point?}
-    ENTRY -->|main.py| MAIN[📋 Main Entry Point]
-    ENTRY -->|launcher.py| LAUNCHER[🚀 Launcher]
-    ENTRY -->|CLI Scripts| CLI[💻 CLI Interface]
+    ENTRY -->|gui_main.py| GUI[🖥️ GUI Interface]
+    ENTRY -->|ultra_modern_face_recognition.py| CLI[💻 CLI Interface]
+    ENTRY -->|main.py| LEGACY[🔙 Legacy Entry]
     
     %% Configuration Loading
-    MAIN --> CONFIG_LOAD[⚙️ Load Configuration]
-    LAUNCHER --> CONFIG_LOAD
+    GUI --> CONFIG_LOAD[⚙️ Load Configuration]
     CLI --> CONFIG_LOAD
+    LEGACY --> CONFIG_LOAD
     
     CONFIG_LOAD --> CONFIG_CHECK{Config Valid?}
     CONFIG_CHECK -->|Yes| SYSTEM_INIT[🏗️ Initialize System]
     CONFIG_CHECK -->|No| CONFIG_CREATE[📝 Create Default Config]
     CONFIG_CREATE --> SYSTEM_INIT
     
-    %% System Selection
-    SYSTEM_INIT --> SYSTEM_SELECT{System Type?}
-    SYSTEM_SELECT -->|Enhanced| ENHANCED[🚀 Enhanced System]
-    SYSTEM_SELECT -->|Professional| PROFESSIONAL[💼 Professional System]
-    SYSTEM_SELECT -->|Legacy| LEGACY[📟 Legacy System]
+    %% UI Selection
+    GUI --> UI_SELECT{UI Framework?}
+    UI_SELECT -->|PyQt6 Available| PYQT[🎨 PyQt6 Interface]
+    UI_SELECT -->|Fallback| TK[🧩 Tkinter Interface]
     
     %% Component Initialization
-    ENHANCED --> COMP_INIT[🔧 Initialize Components]
-    PROFESSIONAL --> COMP_INIT
-    LEGACY --> COMP_INIT
+    SYSTEM_INIT --> COMP_INIT[🔧 Initialize Components]
+    PYQT --> COMP_INIT
+    TK --> COMP_INIT
     
     COMP_INIT --> CAMERA_INIT[📹 Camera Handler]
     COMP_INIT --> DETECTOR_INIT[🔍 Face Detector]
     COMP_INIT --> RECOGNIZER_INIT[🧠 Face Recognizer]
-    COMP_INIT --> ALERT_INIT[🚨 Alert System]
+    COMP_INIT --> NOTIFIER_INIT[🚨 Notification System]
+    COMP_INIT --> STORAGE_INIT[💾 Face Storage]
     
     %% Model Loading
     DETECTOR_INIT --> MODEL_LOAD[📦 Load Detection Models]
@@ -43,18 +43,22 @@ graph TB
     MODEL_LOAD --> MODEL_CHECK{Models Available?}
     MODEL_CHECK -->|YuNet| YUNET[🎯 YuNet Detector]
     MODEL_CHECK -->|OpenCV DNN| OPENCV_DNN[🔄 OpenCV DNN]
-    MODEL_CHECK -->|Haar Cascade| HAAR[📐 Haar Cascade]
-    MODEL_CHECK -->|dlib| DLIB[🔍 dlib Detector]
+    MODEL_CHECK -->|Fallback| HAAR[📐 Haar Cascade]
     
     ENCODE_LOAD --> ENCODE_CHECK{Encodings Exist?}
     ENCODE_CHECK -->|Yes| LOAD_DB[📚 Load Face Database]
     ENCODE_CHECK -->|No| CREATE_DB[🆕 Create New Database]
     
+    %% GPU Acceleration
+    YUNET --> GPU_CHECK{GPU Available?}
+    GPU_CHECK -->|Yes| ONNX_GPU[⚡ ONNX GPU Acceleration]
+    GPU_CHECK -->|No| ONNX_CPU[🔄 ONNX CPU Execution]
+    
     %% Main Processing Loop
-    YUNET --> MAIN_LOOP[🔄 Main Processing Loop]
+    ONNX_GPU --> MAIN_LOOP[🔄 Main Processing Loop]
+    ONNX_CPU --> MAIN_LOOP
     OPENCV_DNN --> MAIN_LOOP
     HAAR --> MAIN_LOOP
-    DLIB --> MAIN_LOOP
     LOAD_DB --> MAIN_LOOP
     CREATE_DB --> MAIN_LOOP
     
@@ -72,11 +76,11 @@ graph TB
     FACE_DETECT --> DETECT_ALGO{Detection Method?}
     DETECT_ALGO -->|YuNet| YUNET_DETECT[🎯 YuNet Detection]
     DETECT_ALGO -->|OpenCV| OPENCV_DETECT[🔄 OpenCV Detection]
-    DETECT_ALGO -->|dlib| DLIB_DETECT[🔍 dlib Detection]
+    DETECT_ALGO -->|Haar| HAAR_DETECT[📐 Haar Detection]
     
     YUNET_DETECT --> FACE_FOUND{Faces Found?}
     OPENCV_DETECT --> FACE_FOUND
-    DLIB_DETECT --> FACE_FOUND
+    HAAR_DETECT --> FACE_FOUND
     
     FACE_FOUND -->|No| DISPLAY_FRAME[🖥️ Display Frame]
     FACE_FOUND -->|Yes| FACE_EXTRACT[✂️ Extract Face Regions]
@@ -86,12 +90,12 @@ graph TB
     FACE_ALIGN --> ENCODE_FACE[🧬 Generate Encodings]
     
     ENCODE_FACE --> ENCODE_METHOD{Encoding Method?}
-    ENCODE_METHOD -->|face_recognition| FR_ENCODE[🏷️ face_recognition Library]
     ENCODE_METHOD -->|SFace| SFACE_ENCODE[🤖 SFace Model]
+    ENCODE_METHOD -->|face_recognition| FR_ENCODE[🏷️ face_recognition Library]
     ENCODE_METHOD -->|Custom| CUSTOM_ENCODE[⚙️ Custom Encoding]
     
-    FR_ENCODE --> COMPARE_FACES[🔍 Compare Encodings]
-    SFACE_ENCODE --> COMPARE_FACES
+    SFACE_ENCODE --> COMPARE_FACES[🔍 Compare Encodings]
+    FR_ENCODE --> COMPARE_FACES
     CUSTOM_ENCODE --> COMPARE_FACES
     
     COMPARE_FACES --> MATCH_CHECK{Match Found?}
@@ -113,15 +117,13 @@ graph TB
     ALERT_TYPE -->|Desktop| DESKTOP_NOTIF[🖥️ Desktop Notification]
     ALERT_TYPE -->|Sound| SOUND_ALERT[🔊 Sound Alert]
     ALERT_TYPE -->|Log| LOG_ALERT[📝 Log Event]
-    ALERT_TYPE -->|Webhook| WEBHOOK_ALERT[🌐 Webhook Alert]
-    ALERT_TYPE -->|Email| EMAIL_ALERT[📧 Email Alert]
+    ALERT_TYPE -->|Custom| CUSTOM_ALERT[🌐 Custom Alert]
     
     %% Logging and Storage
     DESKTOP_NOTIF --> LOG_EVENT[📊 Log Event]
     SOUND_ALERT --> LOG_EVENT
     LOG_ALERT --> LOG_EVENT
-    WEBHOOK_ALERT --> LOG_EVENT
-    EMAIL_ALERT --> LOG_EVENT
+    CUSTOM_ALERT --> LOG_EVENT
     
     LOG_EVENT --> UPDATE_DB[🗃️ Update Database]
     UPDATE_DB --> ANNOTATE_FRAME[🏷️ Annotate Frame]
@@ -136,8 +138,12 @@ graph TB
     USER_INPUT -->|Settings| SETTINGS[⚙️ Adjust Settings]
     USER_INPUT -->|Quit| CLEANUP[🧹 Cleanup Resources]
     
-    ADD_PERSON --> CAPTURE_SAMPLES[📸 Capture Face Samples]
-    CAPTURE_SAMPLES --> TRAIN_MODEL[🎓 Train/Update Model]
+    ADD_PERSON --> SIMPLE_OR_3D{Capture Type?}
+    SIMPLE_OR_3D -->|Simple| CAPTURE_SIMPLE[📸 Single Capture]
+    SIMPLE_OR_3D -->|3D Model| CAPTURE_3D[🧩 Multi-Angle Capture]
+    
+    CAPTURE_SIMPLE --> TRAIN_MODEL[🎓 Train/Update Model]
+    CAPTURE_3D --> TRAIN_MODEL
     TRAIN_MODEL --> SAVE_DB[💾 Save Database]
     SAVE_DB --> FRAME_CAPTURE
     
@@ -154,214 +160,277 @@ graph TB
     classDef alert fill:#b71c1c,stroke:#f44336,stroke-width:2px,color:#ffffff
     classDef storage fill:#33691e,stroke:#8bc34a,stroke-width:2px,color:#ffffff
     
-    class START,ENTRY,MAIN,LAUNCHER,CLI entryPoint
+    class START,ENTRY,GUI,CLI,LEGACY entryPoint
     class COMP_INIT,PREPROCESS,RESIZE,COLOR_CONVERT processing
-    class FACE_DETECT,YUNET_DETECT,OPENCV_DETECT,DLIB_DETECT detection
-    class ENCODE_FACE,FR_ENCODE,SFACE_ENCODE,COMPARE_FACES recognition
-    class ALERT_PROCESS,DESKTOP_NOTIF,SOUND_ALERT,WEBHOOK_ALERT alert
+    class FACE_DETECT,YUNET_DETECT,OPENCV_DETECT,HAAR_DETECT detection
+    class ENCODE_FACE,SFACE_ENCODE,FR_ENCODE,COMPARE_FACES recognition
+    class ALERT_PROCESS,DESKTOP_NOTIF,SOUND_ALERT,CUSTOM_ALERT alert
     class LOG_EVENT,UPDATE_DB,SAVE_DB storage
 ```
 
-## 🏗️ System Architecture Diagram
+## 🏗️ Modernized System Architecture Diagram
 
 ```mermaid
 graph LR
     subgraph "🎯 Entry Layer"
-        A[main.py]
-        B[launcher.py]
-        C[CLI Scripts]
+        A[gui_main.py]
+        B[ultra_modern_face_recognition.py]
+        C[main.py]
+    end
+    
+    subgraph "🎮 UI Layer"
+        D[PyQt6 GUI]
+        E[Tkinter GUI]
+        F[CLI Interface]
     end
     
     subgraph "🔧 Core System Layer"
-        D[Enhanced System]
-        E[Professional System]
-        F[Legacy System]
-        G[Configuration Manager]
+        G[FacialRecognitionSystem]
+        H[Configuration Manager]
+        I[Performance Optimizer]
+        J[Error Handler]
     end
     
     subgraph "🧠 AI/ML Layer"
-        H[YuNet Detector<br/>📦 ONNX Model]
-        I[SFace Recognizer<br/>🤖 ONNX Model]
-        J[OpenCV DNN<br/>🔄 CV Models]
-        K[dlib Models<br/>🔍 HOG/CNN]
-        L[face_recognition<br/>🏷️ Library]
+        K[YuNet Detector<br/>📦 ONNX Model]
+        L[SFace Recognizer<br/>🤖 ONNX Model]
+        M[OpenCV DNN<br/>🔄 CV Models]
+        N[Haar Cascade<br/>📏 Fallback]
     end
     
     subgraph "📊 Data Layer"
-        M[Face Database<br/>📚 PKL/JSON]
-        N[Configuration<br/>⚙️ YAML/JSON]
-        O[Logs<br/>📝 System/Alert]
-        P[Models<br/>📦 ONNX Files]
+        O[Face Storage<br/>💾 Database]
+        P[Configuration<br/>⚙️ JSON]
+        Q[Logs<br/>📝 System/Alert]
+        R[Models<br/>📦 ONNX Files]
     end
     
     subgraph "🎥 Input Layer"
-        Q[Webcam<br/>📹 Local]
-        R[IP Camera<br/>🌐 Network]
-        S[Video Files<br/>📼 MP4/AVI]
-        T[RTSP Streams<br/>📡 Network]
+        S[Webcam<br/>📹 Local]
+        T[IP Camera<br/>🌐 Network]
+        U[Video Files<br/>📼 MP4/AVI]
     end
     
     subgraph "🚨 Output Layer"
-        U[Desktop Alerts<br/>🖥️ Notifications]
-        V[Sound Alerts<br/>🔊 Audio]
-        W[Webhooks<br/>🌐 HTTP]
-        X[Email Alerts<br/>📧 SMTP]
-        Y[Live Display<br/>🖼️ OpenCV]
+        V[Desktop Alerts<br/>🖥️ Notifications]
+        W[Sound Alerts<br/>🔊 Audio]
+        X[Logging<br/>📝 Text]
+        Y[Live Display<br/>🖼️ GUI/OpenCV]
     end
     
     %% Connections
-    A --> G
-    B --> G
-    C --> G
-    G --> D
-    G --> E
-    G --> F
+    A --> D
+    A --> E
+    B --> F
+    C --> F
     
-    D --> H
-    D --> I
-    E --> J
-    E --> K
-    F --> L
+    D --> G
+    E --> G
+    F --> G
     
-    H --> M
-    I --> M
-    J --> M
-    K --> M
-    L --> M
+    G --> H
+    G --> I
+    G --> J
     
+    G --> K
+    G --> L
+    G --> M
     G --> N
-    D --> O
-    H --> P
-    I --> P
     
-    Q --> D
-    R --> D
-    S --> E
-    T --> E
+    K --> O
+    L --> O
+    M --> O
+    N --> O
     
-    D --> U
-    D --> V
-    E --> W
-    E --> X
-    F --> Y
+    G --> P
+    I --> Q
+    J --> Q
+    K --> R
+    L --> R
+    
+    S --> G
+    T --> G
+    U --> G
+    
+    G --> V
+    G --> W
+    G --> X
+    G --> Y
     
     %% Styling - Dark Mode Friendly
     classDef entry fill:#1a237e,stroke:#3f51b5,stroke-width:2px,color:#ffffff
-    classDef core fill:#4a148c,stroke:#7b1fa2,stroke-width:2px,color:#ffffff
+    classDef ui fill:#4a148c,stroke:#7b1fa2,stroke-width:2px,color:#ffffff
+    classDef core fill:#006064,stroke:#0097a7,stroke-width:2px,color:#ffffff
     classDef ai fill:#1b5e20,stroke:#4caf50,stroke-width:2px,color:#ffffff
     classDef data fill:#e65100,stroke:#ff9800,stroke-width:2px,color:#ffffff
     classDef input fill:#b71c1c,stroke:#f44336,stroke-width:2px,color:#ffffff
     classDef output fill:#33691e,stroke:#8bc34a,stroke-width:2px,color:#ffffff
     
     class A,B,C entry
-    class D,E,F,G core
-    class H,I,J,K,L ai
-    class M,N,O,P data
-    class Q,R,S,T input
-    class U,V,W,X,Y output
+    class D,E,F ui
+    class G,H,I,J core
+    class K,L,M,N ai
+    class O,P,Q,R data
+    class S,T,U input
+    class V,W,X,Y output
 ```
 
-## 🔄 Data Flow Diagram
+## 🔄 Modern Data Flow Diagram
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Main as Main System
+    participant GUI as GUI/CLI Interface
+    participant System as Core System
     participant Config as Configuration
     participant Camera as Camera Handler
     participant Detector as Face Detector
     participant Recognizer as Face Recognizer
-    participant Database as Face Database
-    participant Alerts as Alert System
-    participant Display as Display Manager
+    participant Database as Face Storage
+    participant Notifier as Notification System
     
-    User->>Main: Launch Application
-    Main->>Config: Load Configuration
-    Config-->>Main: Configuration Data
+    User->>GUI: Launch Application
+    GUI->>System: Initialize System
+    System->>Config: Load Configuration
+    Config-->>System: Configuration Data
     
-    Main->>Camera: Initialize Camera
-    Main->>Detector: Load Detection Models
-    Main->>Recognizer: Load Recognition Models
-    Main->>Database: Load Face Database
-    Main->>Alerts: Initialize Alert System
+    System->>Camera: Initialize Camera
+    System->>Detector: Load Detection Models
+    Detector->>Detector: Check GPU Availability
+    Detector->>Detector: Optimize ONNX Models
+    System->>Recognizer: Load Recognition Models
+    System->>Database: Load Face Database
+    System->>Notifier: Initialize Notification System
     
     loop Real-time Processing
-        Camera->>Main: Capture Frame
-        Main->>Detector: Detect Faces
-        Detector-->>Main: Face Coordinates
+        Camera->>System: Capture Frame
+        System->>Detector: Detect Faces
+        Detector-->>System: Face Coordinates
         
         alt Faces Found
-            Main->>Recognizer: Extract Face Features
+            System->>Recognizer: Extract Face Features
             Recognizer->>Database: Compare Encodings
             Database-->>Recognizer: Match Results
-            Recognizer-->>Main: Recognition Results
+            Recognizer-->>System: Recognition Results
             
             alt Known Person
-                Main->>Alerts: Trigger Known Alert
-                Alerts->>User: Desktop Notification
-                Alerts->>Database: Log Event
+                System->>Notifier: Trigger Known Alert
+                Notifier->>User: Desktop Notification
+                Notifier->>Database: Log Event
             else Unknown Person
-                Main->>Alerts: Trigger Unknown Alert
-                Alerts->>User: Security Alert
-                Alerts->>Database: Log Event
+                System->>Notifier: Trigger Unknown Alert
+                Notifier->>User: Security Alert
+                Notifier->>Database: Log Event
             end
         end
         
-        Main->>Display: Annotate Frame
-        Display->>User: Show Live Feed
+        System->>GUI: Update Display
+        GUI->>User: Show Live Feed
         
-        User->>Main: User Commands
+        User->>GUI: User Commands
+        GUI->>System: Process Commands
+        
         alt Add Person
-            Main->>Camera: Capture Training Images
-            Main->>Recognizer: Generate Encodings
+            System->>Camera: Capture Training Images
+            alt 3D Model
+                System->>Camera: Multi-Angle Captures
+            end
+            System->>Recognizer: Generate Encodings
             Recognizer->>Database: Save New Person
         else Adjust Settings
-            Main->>Config: Update Settings
+            System->>Config: Update Settings
+            Config->>System: Apply New Settings
         else Quit
-            Main->>Camera: Release Resources
-            Main->>Main: Exit Application
+            System->>Camera: Release Resources
+            System->>Database: Save State
+            System->>System: Exit Application
         end
     end
 ```
 
-## 📁 Component Breakdown
+## 📁 Modernized Component Breakdown
 
-### 🎯 **Core Components**
-- **Enhanced Main System**: Primary orchestrator with advanced features
-- **Professional System**: Enterprise-grade processing pipeline
-- **Legacy System**: Backward compatibility support
-- **Configuration Manager**: Centralized settings management
+### 🎯 **Entry Points**
+- **gui_main.py**: Primary GUI entry point with PyQt6/Tkinter
+- **ultra_modern_face_recognition.py**: CLI-based full-featured interface
+- **main.py**: Legacy entry point for backward compatibility
 
-### 🤖 **AI/ML Models**
-- **YuNet**: SOTA face detection (ONNX)
+### 🎮 **UI Components**
+- **PyQt6 GUI**: Modern graphical interface with rich components
+- **Tkinter GUI**: Fallback GUI for systems without PyQt6
+- **CLI Interface**: Terminal-based interface with rich text formatting
+
+### 🔧 **Core System**
+- **FacialRecognitionSystem**: Primary orchestrator of all components
+- **Configuration Manager**: Settings and parameter management
+- **Performance Optimizer**: System performance monitoring and tuning
+- **Error Handler**: Comprehensive exception management
+
+### 🧠 **AI/ML Components**
+- **YuNet**: State-of-the-art face detection (ONNX)
 - **SFace**: Advanced face recognition (ONNX)
-- **OpenCV DNN**: Traditional computer vision
-- **dlib**: HOG/CNN face detection
-- **face_recognition**: Python library wrapper
+- **OpenCV DNN**: Traditional computer vision models
+- **Haar Cascade**: Fallback detection for compatibility
 
 ### 📊 **Data Management**
-- **Face Database**: Pickle/JSON storage
-- **Model Files**: ONNX model weights
-- **Configuration**: YAML/JSON settings
-- **Logging**: System and alert logs
+- **Face Storage**: Efficient database for face encodings
+- **Configuration**: JSON-based settings storage
+- **Logging**: Comprehensive event and error logging
+- **Model Files**: ONNX model weights management
 
 ### 🔄 **Processing Pipeline**
-1. **Input Capture**: Multi-source video input
-2. **Preprocessing**: Frame normalization
-3. **Face Detection**: Multiple algorithm support
-4. **Feature Extraction**: Advanced encoding methods
-5. **Recognition**: Similarity matching
-6. **Database Updates**: Real-time learning
+1. **Input Capture**: Multi-source video input handling
+2. **Preprocessing**: Frame normalization and enhancement
+3. **Face Detection**: Multiple algorithm support with fallbacks
+4. **Feature Extraction**: Advanced encoding methods with SFace
+5. **Recognition**: Cosine similarity matching with thresholds
+6. **Database Updates**: Real-time learning and updates
+7. **Notification**: Multi-channel alerting system
 
 ### 🚨 **Alert Mechanisms**
-- **Desktop Notifications**: System-level alerts
-- **Sound Alerts**: Audio feedback
-- **Live Display**: Real-time visualization
+- **Desktop Notifications**: System-level popup alerts
+- **Sound Alerts**: Configurable audio feedback
+- **Logging**: Comprehensive event recording
+- **Visual Indicators**: Real-time UI feedback
 
 ## 🔧 **Performance Optimizations**
-- **Frame Buffering**: Smooth video handling
-- **Model Caching**: Fast inference
-- **GPU Acceleration**: CUDA support
-- **Asynchronous Processing**: Non-blocking operations
+- **ONNX Runtime Acceleration**: Hardware-specific optimizations
+- **GPU Acceleration**: CUDA support for detection and recognition
+- **Frame Buffering**: Smooth video handling with queues
+- **Model Caching**: Fast inference with cached models
+- **Asynchronous Processing**: Non-blocking operations for UI responsiveness
+- **Adaptive Frame Processing**: Dynamic frame rate based on system load
 
-This flowchart represents the complete architecture of your facial recognition system, showing how all components interact from initialization through real-time processing to alert generation and data management.
+## 🧩 **Key System Modules**
+
+### src/face_recognition/core/
+- **system.py**: Main system controller and orchestration
+- **face_detector.py**: Face detection algorithms and pipeline
+- **face_recognizer.py**: Recognition and feature extraction
+- **face_storage.py**: Database and persistence management
+
+### src/face_recognition/ui/
+- **qt_gui.py**: PyQt6-based graphical interface
+- **tk_gui.py**: Tkinter-based fallback interface
+- **ui_components.py**: Shared UI components and utilities
+- **settings_dialogs.py**: Configuration interface elements
+
+### src/face_recognition/utils/
+- **managers.py**: Resource and component management
+- **notification_settings.py**: Alert configuration and delivery
+- **onnx_helper.py**: ONNX runtime optimization utilities
+
+### src/face_recognition/models/
+- **face_models.py**: Model definitions and wrappers
+
+## 📈 **System Diagnostics & Maintenance**
+
+- **cuda_setup.py**: GPU configuration and verification
+- **diagnose_onnx.py**: ONNX runtime diagnostics
+- **fix_onnx_cuda.py**: CUDA-ONNX compatibility fixes
+- **optimize_performance.py**: System-wide performance tuning
+- **test_cuda.py**: CUDA functionality verification
+- **test_onnx.py**: ONNX model validation
+- **cleanup.py**: System maintenance and cleanup
+
+This flowchart represents the complete architecture of the Ultra-Modern Face Recognition System, showing all components from initialization through processing to output generation and system maintenance.
